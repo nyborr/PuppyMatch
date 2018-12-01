@@ -80,7 +80,7 @@ public class SwipeActivity extends Activity {
             tvLike.setLayoutParams(layoutTvParams);
             tvLike.setPadding(10, 10, 10, 10);
             tvLike.setBackgroundDrawable(getResources().getDrawable(R.drawable.btnlikeback));
-            tvLike.setText("LIKE");
+            tvLike.setText("MATCHED");
             tvLike.setGravity(Gravity.CENTER);
             tvLike.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             tvLike.setTextSize(25);
@@ -210,8 +210,8 @@ public class SwipeActivity extends Activity {
                             } else if (Likes == 1) {
                                 parentView.removeView(containerView);
                             } else if (Likes == 2) {
-                                Toast.makeText(context, "LIKED", Toast.LENGTH_SHORT).show();
-                                Log.e("Event_Status :-> ", "Liked");
+                                Toast.makeText(context, "Added to your matches", Toast.LENGTH_SHORT).show();
+                                Log.e("Event_Status :-> ", "Added to your matches");
                                 parentView.removeView(containerView);
                             }
                             break;
