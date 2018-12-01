@@ -85,7 +85,7 @@ public class SwipeActivity extends Activity {
             tvLike.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             tvLike.setTextSize(25);
             tvLike.setTextColor(ContextCompat.getColor(context, R.color.colorRed));
-            tvLike.setX(20);
+            tvLike.setX(-20);
             tvLike.setY(100);
             tvLike.setRotation(-50);
             tvLike.setAlpha(alphaValue);
@@ -101,8 +101,8 @@ public class SwipeActivity extends Activity {
             tvUnLike.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             tvUnLike.setTextSize(25);
             tvUnLike.setTextColor(ContextCompat.getColor(context, R.color.colorRed));
-            tvUnLike.setX(500);
-            tvUnLike.setY(150);
+            tvUnLike.setX(830);
+            tvUnLike.setY(50);
             tvUnLike.setRotation(50);
             tvUnLike.setAlpha(alphaValue);
             relativeLayoutContainer.addView(tvUnLike);
@@ -130,6 +130,13 @@ public class SwipeActivity extends Activity {
                 size.setText("Medium");
             } else {
                 size.setText("Small");
+            }
+
+            TextView children = (TextView) containerView.findViewById(R.id.children_textview);
+            if (AnimalsArrayList.get(i).isChildren() == true) {
+                children.setText("Yes");
+            } else {
+                children.setText("No");
             }
 
 
