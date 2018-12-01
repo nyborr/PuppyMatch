@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,7 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SwipeActivity extends Activity {
-    int windowwidth;
+    int windowWidth;
     int screenCenter;
     int x_cord, y_cord, x, y;
     int Likes = 0;
@@ -44,9 +43,9 @@ public class SwipeActivity extends Activity {
         parentView = (RelativeLayout) findViewById(R.id.swipe_layoutview);
 
 
-        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
+        windowWidth = getWindowManager().getDefaultDisplay().getWidth();
 
-        screenCenter = windowwidth / 2;
+        screenCenter = windowWidth / 2;
 
         AnimalsArrayList = new ArrayList<>();
 
@@ -109,9 +108,30 @@ public class SwipeActivity extends Activity {
             relativeLayoutContainer.addView(tvUnLike);
 
             TextView tvName = (TextView) containerView.findViewById(R.id.name_textview);
-            //TextView tvTotLikes = (TextView) containerView.findViewById(R.id.tvTotalLikes);
             tvName.setText(AnimalsArrayList.get(i).getName());
-            //tvTotLikes.setText(AnimalsArrayList.get(i).getTotalLikes());
+
+            TextView sexTV = (TextView) containerView.findViewById(R.id.sex_textview);
+            if (AnimalsArrayList.get(i).getGender() == Sex.FEMALE) {
+                sexTV.setText("Female");
+            } else {
+                sexTV.setText("Male");
+            }
+
+            TextView species = (TextView) containerView.findViewById(R.id.species_textview);
+            species.setText(AnimalsArrayList.get(i).getSpecies());
+
+            TextView age = (TextView) containerView.findViewById(R.id.age_textview);
+            age.setText(AnimalsArrayList.get(i).getAge() +"");
+
+            TextView size = (TextView) containerView.findViewById(R.id.size_textview);
+            if (AnimalsArrayList.get(i).getSize() == Size.LARGE) {
+                size.setText("Large");
+            } else if (AnimalsArrayList.get(i).getSize() == Size.MEDIUM) {
+                size.setText("Medium");
+            } else {
+                size.setText("Small");
+            }
+
 
             // Touch listener on the image layout to swipe image right or left.
             relativeLayoutContainer.setOnTouchListener(new OnTouchListener() {
@@ -146,7 +166,7 @@ public class SwipeActivity extends Activity {
                                 containerView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
                                 if (x_cord > (screenCenter + (screenCenter / 2))) {
                                     tvLike.setAlpha(1);
-                                    if (x_cord > (windowwidth - (screenCenter / 4))) {
+                                    if (x_cord > (windowWidth - (screenCenter / 4))) {
                                         Likes = 2;
                                     } else {
                                         Likes = 0;
@@ -211,13 +231,14 @@ public class SwipeActivity extends Activity {
 
 
     private void getPuppyData() {
-        Animal ex1 = new Animal("Walter", Type.DOG, Sex.MALE,"Labrador Retriever, Beagle", 4, true, Size.LARGE);
+        Animal ex2 = new Animal("Zelly", Sex.FEMALE,"Western Pointer", 5, false, Size.LARGE);
+        ex2.setPhoto(R.drawable.zilly);
+        AnimalsArrayList.add(ex2);
+
+        Animal ex1 = new Animal("Walter", Sex.MALE,"Labrador Retriever, Beagle", 4, true, Size.LARGE);
         ex1.setPhoto(R.drawable.walter);
         AnimalsArrayList.add(ex1);
 
-        Animal ex2 = new Animal("Zelly", Type.DOG, Sex.FEMALE,"Western Pointer", 5, false, Size.LARGE);
-        ex2.setPhoto(R.drawable.zilly);
-        AnimalsArrayList.add(ex2);
     }
 
 

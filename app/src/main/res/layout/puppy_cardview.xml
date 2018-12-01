@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/puppy_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="500dp"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
@@ -45,7 +45,31 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Likes : "
+                        android:text="Species : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gender : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Age : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Size : "
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Works with children : "
                         android:textColor="#000" />
                 </LinearLayout>
 
@@ -62,17 +86,17 @@
                         android:textColor="#000" />
 
                     <TextView
-                        android:id="@+id/animal_type_textview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Animal type here"
-                        android:textColor="#000" />
-
-                    <TextView
                         android:id="@+id/species_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Species"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/sex_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="sex"
                         android:textColor="#000" />
 
                     <TextView

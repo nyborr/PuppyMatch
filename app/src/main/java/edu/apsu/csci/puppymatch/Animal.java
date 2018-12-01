@@ -4,10 +4,6 @@ enum Size {
     SMALL, MEDIUM, LARGE
 }
 
-enum Type {
-    CAT, DOG
-}
-
 enum Sex {
     MALE, FEMALE
 }
@@ -15,7 +11,7 @@ enum Sex {
 public class Animal {
 
     private String name;
-    private Type type;
+    private String type;
     private String species;
     private int age;
     private boolean children;
@@ -24,7 +20,8 @@ public class Animal {
     private String totalLikes;
     private Sex gender;
 
-    public Animal(String name, Type type, Sex gender, String species, int age, boolean children, Size size) {
+
+    public Animal(String name, Sex gender, String species, int age, boolean children, Size size) {
         this.name = name;
         this.type = type;
         this.gender = gender;
@@ -32,6 +29,14 @@ public class Animal {
         this.age = age;
         this.children = children;
         this.size = size;
+    }
+
+    public Sex getGender() {
+        return gender;
+    }
+
+    public void setGender(Sex gender) {
+        this.gender = gender;
     }
 
     public String getTotalLikes() {
@@ -81,8 +86,8 @@ public class Animal {
         this.size = size;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public int getPhoto() {
