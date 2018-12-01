@@ -16,9 +16,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button b = findViewById(R.id.swipe_button);
         b.setOnClickListener(this);
 
-        b = findViewById(R.id.profile_button);
-        b.setOnClickListener(this);
-
         b = findViewById(R.id.about_button);
         b.setOnClickListener(this);
     }
@@ -29,8 +26,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         if (v.getId() == R.id.swipe_button) {
             intent = new Intent(getApplicationContext(), SwipeActivity.class);
-        } else if (v.getId() == R.id.profile_button) {
-            intent = new Intent(getApplicationContext(), ProfileActivity.class);
         } else {
             intent = new Intent(getApplicationContext(), AboutActivity.class);
         }

@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".AboutActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ProfileActivity" android:screenOrientation="portrait"/>
         <activity android:name=".SwipeActivity" android:screenOrientation="portrait"/>
     </application>
 
