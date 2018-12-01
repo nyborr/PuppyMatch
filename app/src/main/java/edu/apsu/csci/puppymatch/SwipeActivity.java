@@ -111,11 +111,7 @@ public class SwipeActivity extends Activity {
             tvName.setText(AnimalsArrayList.get(i).getName());
 
             TextView sexTV = (TextView) containerView.findViewById(R.id.sex_textview);
-            if (AnimalsArrayList.get(i).getGender() == Sex.FEMALE) {
-                sexTV.setText("Female");
-            } else {
-                sexTV.setText("Male");
-            }
+            sexTV.setText(AnimalsArrayList.get(i).getGender());
 
             TextView species = (TextView) containerView.findViewById(R.id.species_textview);
             species.setText(AnimalsArrayList.get(i).getSpecies());
@@ -235,11 +231,11 @@ public class SwipeActivity extends Activity {
 
 
     private void getPuppyData() {
-        Animal ex2 = new Animal("Zelly", Sex.FEMALE,"Western Pointer", 5, false, Size.LARGE);
+        Animal ex2 = new Animal("Zelly", "Female","Western Pointer", 5, false, Size.LARGE);
         ex2.setPhoto(R.drawable.zilly);
         AnimalsArrayList.add(ex2);
 
-        Animal ex1 = new Animal("Walter", Sex.MALE,"Labrador Retriever, Beagle", 4, true, Size.LARGE);
+        Animal ex1 = new Animal("Walter", "Male","Labrador Retriever, Beagle", 4, true, Size.LARGE);
         ex1.setPhoto(R.drawable.walter);
         AnimalsArrayList.add(ex1);
 
