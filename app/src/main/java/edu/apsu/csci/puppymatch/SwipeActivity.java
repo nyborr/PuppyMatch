@@ -96,7 +96,7 @@ public class SwipeActivity extends Activity {
             tvUnLike.setLayoutParams(layoutTvParams);
             tvUnLike.setPadding(10, 10, 10, 10);
             tvUnLike.setBackgroundDrawable(getResources().getDrawable(R.drawable.btnlikeback));
-            tvUnLike.setText("UNLIKE");
+            tvUnLike.setText("SKIP");
             tvUnLike.setGravity(Gravity.CENTER);
             tvUnLike.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
             tvUnLike.setTextSize(25);
@@ -164,9 +164,9 @@ public class SwipeActivity extends Activity {
 
                             if (x_cord >= screenCenter) {
                                 containerView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
-                                if (x_cord > (screenCenter + (screenCenter / 2))) {
+                                if (x_cord > windowWidth - (screenCenter / 1.1)) {
                                     tvLike.setAlpha(1);
-                                    if (x_cord > (windowWidth - (screenCenter / 4))) {
+                                    if (x_cord > (windowWidth - (screenCenter / 1.1))) {
                                         Likes = 2;
                                     } else {
                                         Likes = 0;
@@ -179,9 +179,9 @@ public class SwipeActivity extends Activity {
                             } else {
                                 // rotate image while moving
                                 containerView.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
-                                if (x_cord < (screenCenter / 2)) {
+                                if (x_cord < screenCenter / 1.5) {
                                     tvUnLike.setAlpha(1);
-                                    if (x_cord < screenCenter / 4) {
+                                    if (x_cord < screenCenter / 1.5) {
                                         Likes = 1;
                                     } else {
                                         Likes = 0;
@@ -202,15 +202,12 @@ public class SwipeActivity extends Activity {
                             tvUnLike.setAlpha(0);
                             tvLike.setAlpha(0);
 
-                            if (Likes == 0) {
-                                Toast.makeText(context, "NOTHING", Toast.LENGTH_SHORT).show();
-                                Log.e("Event_Status :-> ", "Nothing");
+                            if (Likes == 0)
+                            {
                                 containerView.setX(0);
                                 containerView.setY(0);
                                 containerView.setRotation(0);
                             } else if (Likes == 1) {
-                                Toast.makeText(context, "UNLIKE", Toast.LENGTH_SHORT).show();
-                                Log.e("Event_Status :-> ", "UNLIKE");
                                 parentView.removeView(containerView);
                             } else if (Likes == 2) {
                                 Toast.makeText(context, "LIKED", Toast.LENGTH_SHORT).show();
