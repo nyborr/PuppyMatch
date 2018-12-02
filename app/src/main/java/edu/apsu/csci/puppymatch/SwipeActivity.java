@@ -219,7 +219,7 @@ public class SwipeActivity extends Activity {
                                 Toast.makeText(context, "Added to your matches", Toast.LENGTH_SHORT).show();
                                 Log.e("Event_Status :-> ", "Added to your matches");
 
-                                db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto()));
+                                db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto(), AnimalsArrayList.get(j).getShelterName(), AnimalsArrayList.get(j).getShelterAddress(), AnimalsArrayList.get(j).getShelterPhone(), AnimalsArrayList.get(j).getAdoptionFee()));
                                 Log.i("ADDED: " , "Added the animal " + AnimalsArrayList.get(j).getName());
                                 parentView.removeView(containerView);
                             }
@@ -237,11 +237,15 @@ public class SwipeActivity extends Activity {
 
 
     private void getPuppyData() {
-        Animal ex2 = new Animal(1, "Zelly", "Female","Western Pointer", 5, false, Size.LARGE, R.drawable.zilly);
+        Animal ex3 = new Animal(3, "Pretty Girl", "Female",  "Pit Bull Terrier", "About 1 year", true, Size.LARGE, R.drawable.prettygirl, "Clarksville Humane Society", "940 Tennessee Ave, Clarksville, TN", "(931) 648-8042", "$50");
+        ex3.setPhoto(R.drawable.prettygirl);
+        AnimalsArrayList.add(ex3);
+
+        Animal ex2 = new Animal(2, "Zelly", "Female","Western Pointer", "5 years", false, Size.LARGE, R.drawable.zilly, "Clarksville Humane Society", "940 Tennessee Ave, Clarksville, TN", "(931) 648-8042", "$50");
         ex2.setPhoto(R.drawable.zilly);
         AnimalsArrayList.add(ex2);
 
-        Animal ex1 = new Animal(2, "Walter", "Male","Labrador Retriever, Beagle", 4, true, Size.LARGE, R.drawable.walter);
+        Animal ex1 = new Animal(1, "Walter", "Male","Labrador Retriever, Beagle", "4 years", true, Size.LARGE, R.drawable.walter, "Clarksville Humane Society", "940 Tennessee Ave, Clarksville, TN", "(931) 648-8042", "$50");
         ex1.setPhoto(R.drawable.walter);
         AnimalsArrayList.add(ex1);
 

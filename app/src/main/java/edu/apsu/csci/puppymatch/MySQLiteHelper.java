@@ -128,7 +128,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         animal.setName(cursor.getString(1));
         animal.setGender(cursor.getString(2));
         animal.setSpecies(cursor.getString(3));
-        animal.setAge(cursor.getInt(4));
+        animal.setAge(cursor.getString(4));
         animal.setChildren(cursor.getInt(4) > 0);
         if (cursor.getString(5) == "Small") {
             animal.setSize(Size.SMALL);
@@ -166,7 +166,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 animal.setName(cursor.getString(1));
                 animal.setGender(cursor.getString(2));
                 animal.setSpecies(cursor.getString(3));
-                animal.setAge(cursor.getInt(4));
+                animal.setAge(cursor.getString(4));
                 animal.setChildren(cursor.getInt(4) > 0);
                 if (cursor.getString(5) == "Small") {
                     animal.setSize(Size.SMALL);

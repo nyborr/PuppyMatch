@@ -10,7 +10,7 @@ public class Animal {
     private String name;
     private String type;
     private String species;
-    private int age;
+    private String age;
     private boolean children;
     private Size size;
     private int photo;
@@ -19,12 +19,13 @@ public class Animal {
     private String shelterName;
     private String shelterAddress;
     private String shelterPhone;
+    private String adoptionFee;
 
     public Animal() {
 
     }
 
-    public Animal(int id, String name, String gender, String species, int age, boolean children, Size size, int photo, String shelterName, String shelterAddress, String shelterPhone) {
+    public Animal(int id, String name, String gender, String species, String age, boolean children, Size size, int photo, String shelterName, String shelterAddress, String shelterPhone, String adoptionFee) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -37,6 +38,7 @@ public class Animal {
         this.shelterName = shelterName;
         this.shelterAddress = shelterAddress;
         this.shelterPhone = shelterPhone;
+        this.adoptionFee = adoptionFee;
     }
 
     public int getId() {
@@ -78,11 +80,11 @@ public class Animal {
         this.species = species;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -120,4 +122,5 @@ public class Animal {
 
     public String getShelterPhone() { return shelterPhone; }
 
+    public String getAdoptionFee() { return adoptionFee; }
 }
