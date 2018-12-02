@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,7 +31,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 "age INTEGER," +
                 "children BOOLEAN," +
                 "size TEXT ," +
-                "photo INTEGER)";
+                "photo INTEGER," +
+                "sheltername TEXT," +
+                "shelteraddress TEXT," +
+                "shelterphone TEXT," +
+                "adoptionfee TEXT)";
 
         // create matches table
         db.execSQL(CREATE_BOOK_TABLE);
@@ -69,7 +71,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String KEY_SHELTERPHONE = "shelterphone";
     private static final String KEY_ADOPTIONFEE = "adoptionfee";
 
-    private static final String[] COLUMNS = {KEY_ID,KEY_NAME,KEY_SEX, KEY_SPECIES, KEY_AGE, KEY_CHILDREN, KEY_SIZE, KEY_PHOTO};
+    private static final String[] COLUMNS = {KEY_ID,KEY_NAME,KEY_SEX, KEY_SPECIES, KEY_AGE, KEY_CHILDREN, KEY_SIZE, KEY_PHOTO, KEY_SHELTERNAME, KEY_SHELTERADDRESS, KEY_SHELTERPHONE, KEY_ADOPTIONFEE};
 
 
     public void addAnimal(Animal animal){
@@ -187,13 +189,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                     animal.setSize(Size.LARGE);
                 }
                 animal.setPhoto(cursor.getInt(6));
+                animal.setShelterName(cursor.getString(7));
+                animal.setShelterAddress(cursor.getString(8));
+                animal.setShelterPhone(cursor.getString(9));
+                animal.setAdoptionFee(cursor.getString(10));
 
                 // Add book to books
                 animals.add(animal);
             } while (cursor.moveToNext());
         }
 
-        Log.d("getAllBooks()", animals.toString());
+        Log.d("getAllAnimals()", animals.toString());
 
         // return books
         return animals;
@@ -250,7 +256,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. close
         db.close();
 
-        Log.d("delete Animal", animal.toString());
+        Log.d("deleteAnimal", animal.toString());
 
     }
 

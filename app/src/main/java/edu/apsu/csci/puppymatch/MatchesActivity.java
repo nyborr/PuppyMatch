@@ -45,8 +45,6 @@ public class MatchesActivity extends ListActivity {
         ArrayAdapter<Animal> adapter = new myAdapter(this, animals);
         setListAdapter(adapter);
 
-
-
         Log.i("LISTSIZE", list.size() + "");
 
     }
@@ -62,6 +60,7 @@ public class MatchesActivity extends ListActivity {
         // If serializable dont do this
         intent.putExtra(NAME_KEY, animal.getName());
         intent.putExtra(GENDER_KEY, animal.getGender());
+        //intent.putExtra("")
 
 
         startActivity(intent);
