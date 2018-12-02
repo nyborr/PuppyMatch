@@ -138,19 +138,19 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         animal.setGender(cursor.getString(2));
         animal.setSpecies(cursor.getString(3));
         animal.setAge(cursor.getString(4));
-        animal.setChildren(cursor.getInt(4) > 0);
-        if (cursor.getString(5) == "Small") {
+        animal.setChildren(cursor.getInt(5) > 0);
+        if (cursor.getString(6) == "Small") {
             animal.setSize(Size.SMALL);
-        } else if (cursor.getString(5) == "Medium") {
+        } else if (cursor.getString(6) == "Medium") {
             animal.setSize(Size.MEDIUM);
-        } else if (cursor.getString(5) == "large") {
+        } else if (cursor.getString(6) == "large") {
             animal.setSize(Size.LARGE);
         }
-        animal.setPhoto(cursor.getInt(6));
-        animal.setShelterName(cursor.getString(7));
-        animal.setShelterAddress(cursor.getString(8));
-        animal.setShelterPhone(cursor.getString(9));
-        animal.setAdoptionFee(cursor.getString(10));
+        animal.setPhoto(cursor.getInt(7));
+        animal.setShelterName(cursor.getString(8));
+        animal.setShelterAddress(cursor.getString(9));
+        animal.setShelterPhone(cursor.getString(10));
+        animal.setAdoptionFee(cursor.getString(11));
 
         Log.d("getAnimal("+id+")", animal.toString());
 
@@ -175,24 +175,23 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             do {
                 animal = new Animal();
                 animal.setId(Integer.parseInt(cursor.getString(0)));
-                animal.setId(Integer.parseInt(cursor.getString(0)));
                 animal.setName(cursor.getString(1));
                 animal.setGender(cursor.getString(2));
                 animal.setSpecies(cursor.getString(3));
                 animal.setAge(cursor.getString(4));
-                animal.setChildren(cursor.getInt(4) > 0);
-                if (cursor.getString(5) == "Small") {
+                animal.setChildren(cursor.getInt(5) > 0);
+                if (cursor.getString(6) == "Small") {
                     animal.setSize(Size.SMALL);
-                } else if (cursor.getString(5) == "Medium") {
+                } else if (cursor.getString(6) == "Medium") {
                     animal.setSize(Size.MEDIUM);
-                } else if (cursor.getString(5) == "large") {
+                } else if (cursor.getString(6) == "large") {
                     animal.setSize(Size.LARGE);
                 }
-                animal.setPhoto(cursor.getInt(6));
-                animal.setShelterName(cursor.getString(7));
-                animal.setShelterAddress(cursor.getString(8));
-                animal.setShelterPhone(cursor.getString(9));
-                animal.setAdoptionFee(cursor.getString(10));
+                animal.setPhoto(cursor.getInt(7));
+                animal.setShelterName(cursor.getString(8));
+                animal.setShelterAddress(cursor.getString(9));
+                animal.setShelterPhone(cursor.getString(10));
+                animal.setAdoptionFee(cursor.getString(11));
 
                 // Add book to books
                 animals.add(animal);
