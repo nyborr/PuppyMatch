@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class SwipeActivity extends Activity {
     public RelativeLayout parentView;
     float alphaValue = 0;
     private Context context;
+    MySQLiteHelper db = new MySQLiteHelper(this);
 
     ArrayList<Animal> AnimalsArrayList;
     @SuppressWarnings("deprecation")
@@ -135,6 +137,7 @@ public class SwipeActivity extends Activity {
                 children.setText("No");
             }
 
+            final int j = i;
 
             // Touch listener on the image layout to swipe image right or left.
             relativeLayoutContainer.setOnTouchListener(new OnTouchListener() {
@@ -215,6 +218,9 @@ public class SwipeActivity extends Activity {
                             } else if (Likes == 2) {
                                 Toast.makeText(context, "Added to your matches", Toast.LENGTH_SHORT).show();
                                 Log.e("Event_Status :-> ", "Added to your matches");
+
+                                db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto()));
+                                Log.i("ADDED: " , "Added the animal " + AnimalsArrayList.get(j).getName());
                                 parentView.removeView(containerView);
                             }
                             break;
@@ -231,11 +237,11 @@ public class SwipeActivity extends Activity {
 
 
     private void getPuppyData() {
-        Animal ex2 = new Animal("Zelly", "Female","Western Pointer", 5, false, Size.LARGE);
+        Animal ex2 = new Animal(1, "Zelly", "Female","Western Pointer", 5, false, Size.LARGE, R.drawable.zilly);
         ex2.setPhoto(R.drawable.zilly);
         AnimalsArrayList.add(ex2);
 
-        Animal ex1 = new Animal("Walter", "Male","Labrador Retriever, Beagle", 4, true, Size.LARGE);
+        Animal ex1 = new Animal(2, "Walter", "Male","Labrador Retriever, Beagle", 4, true, Size.LARGE, R.drawable.walter);
         ex1.setPhoto(R.drawable.walter);
         AnimalsArrayList.add(ex1);
 

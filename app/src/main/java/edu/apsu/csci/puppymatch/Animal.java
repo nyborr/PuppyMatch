@@ -21,7 +21,8 @@ public class Animal {
 
     }
 
-    public Animal(String name, String gender, String species, int age, boolean children, Size size) {
+    public Animal(int id, String name, String gender, String species, int age, boolean children, Size size, int photo) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.gender = gender;
@@ -29,6 +30,7 @@ public class Animal {
         this.age = age;
         this.children = children;
         this.size = size;
+        this.photo = photo;
     }
 
     public int getId() {

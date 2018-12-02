@@ -146,7 +146,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
     // Get All Books
-    public List<Animal> getAllBooks() {
+    public List<Animal> getAllAnimals() {
         List<Animal> animals = new LinkedList<Animal>();
 
         // 1. build the query
@@ -189,7 +189,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
     // Updating single book
-    public int updateBook(Animal animal) {
+    public int updateAnimal(Animal animal) {
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -225,8 +225,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    // Deleting single book
-    public void deleteBook(Animal animal) {
+    // Deleting single animal
+    public void deleteAnimal(Animal animal) {
 
         // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -239,7 +239,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. close
         db.close();
 
-        Log.d("deleteBook", animal.toString());
+        Log.d("deleteAnimal", animal.toString());
 
     }
 
