@@ -38,13 +38,16 @@ public class MatchesActivity extends ListActivity {
 
         Log.i("LISTSIZE", list.size() + "");
         Log.i("LISTAT0", list.get(0) + "");
-        for (int i = 0; i < list.size() - 1; i++) {
+        for (int i = 0; i < list.size(); i++) {
             animals[i] = list.get(i);
         }
 
-
         ArrayAdapter<Animal> adapter = new myAdapter(this, animals);
         setListAdapter(adapter);
+
+
+
+        Log.i("LISTSIZE", list.size() + "");
 
     }
 
@@ -80,7 +83,7 @@ public class MatchesActivity extends ListActivity {
             LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View rowView = layoutInflater.inflate(R.layout.row, parent, false);
-
+            Log.i("LOGGINGGGG", animals[position].getName());
             TextView nameTV = rowView.findViewById(R.id.animal_name_textview);
             nameTV.setText(animals[position].getName());
             TextView speciesTV = rowView.findViewById(R.id.gender_textView);
