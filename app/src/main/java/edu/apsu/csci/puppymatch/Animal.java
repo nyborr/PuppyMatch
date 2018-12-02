@@ -118,9 +118,17 @@ public class Animal {
 
     public String getShelterName() { return shelterName; }
 
+    public void setShelterName(String shelterName) { this.shelterName = shelterName;}
+
     public String getShelterAddress() { return shelterAddress; }
+
+    public void setShelterAddress(String shelterAddress) { this.shelterAddress = shelterAddress;}
 
     public String getShelterPhone() { return shelterPhone; }
 
+    public void setShelterPhone(String shelterPhone) { this.shelterPhone = shelterPhone;}
+
     public String getAdoptionFee() { return adoptionFee; }
+
+    public void setAdoptionFee(String setAdoptionFee) {this.adoptionFee = adoptionFee;}
 }

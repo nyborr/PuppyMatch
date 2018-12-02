@@ -64,6 +64,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String KEY_CHILDREN = "children";
     private static final String KEY_SIZE = "size";
     private static final String KEY_PHOTO = "photo";
+    private static final String KEY_SHELTERNAME  = "sheltername";
+    private static final String KEY_SHELTERADDRESS = "shelteraddress";
+    private static final String KEY_SHELTERPHONE = "shelterphone";
+    private static final String KEY_ADOPTIONFEE = "adoptionfee";
 
     private static final String[] COLUMNS = {KEY_ID,KEY_NAME,KEY_SEX, KEY_SPECIES, KEY_AGE, KEY_CHILDREN, KEY_SIZE, KEY_PHOTO};
 
@@ -91,7 +95,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             values.put(KEY_SIZE, "Small");
         }
         values.put(KEY_PHOTO, animal.getPhoto());
-
+        values.put(KEY_SHELTERNAME, animal.getShelterName());
+        values.put(KEY_SHELTERADDRESS, animal.getShelterAddress());
+        values.put(KEY_SHELTERPHONE, animal.getShelterPhone());
+        values.put(KEY_ADOPTIONFEE, animal.getAdoptionFee());
 
         // 3. insert
         db.insert(TABLE_MATCHES, // table
@@ -138,6 +145,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             animal.setSize(Size.LARGE);
         }
         animal.setPhoto(cursor.getInt(6));
+        animal.setShelterName(cursor.getString(7));
+        animal.setShelterAddress(cursor.getString(8));
+        animal.setShelterPhone(cursor.getString(9));
+        animal.setAdoptionFee(cursor.getString(10));
 
         Log.d("getAnimal("+id+")", animal.toString());
 
@@ -239,7 +250,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. close
         db.close();
 
-        Log.d("deleteAnimal", animal.toString());
+        Log.d("dele teAnimal", animal.toString());
 
     }
 
