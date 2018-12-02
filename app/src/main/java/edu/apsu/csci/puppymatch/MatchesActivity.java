@@ -45,6 +45,8 @@ public class MatchesActivity extends ListActivity {
         ArrayAdapter<Animal> adapter = new myAdapter(this, animals);
         setListAdapter(adapter);
 
+
+
         Log.i("LISTSIZE", list.size() + "");
 
     }
