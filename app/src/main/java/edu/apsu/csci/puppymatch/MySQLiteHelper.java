@@ -250,7 +250,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. close
         db.close();
 
-        Log.d("dele teAnimal", animal.toString());
+        Log.d("delete Animal", animal.toString());
 
     }
 
