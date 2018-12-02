@@ -19,6 +19,7 @@ import java.util.List;
 public class MatchesActivity extends ListActivity {
 
     public final String NAME_KEY = "name_key";
+    public final String GENDER_KEY = "gender_key";
 
 
     @Override
@@ -29,13 +30,24 @@ public class MatchesActivity extends ListActivity {
         MySQLiteHelper db = new MySQLiteHelper(this);
 
         List<Animal> list = db.getAllAnimals();
+        Animal[] animals = new Animal[list.size()];
 
         for (Animal animal : list) {
             Log.i("LISTINGITEMS: ", animal.getName());
         }
 
-       // ArrayAdapter<Animal> adapter = new myAdapter(this, list);
-       // setListAdapter(adapter);
+        Log.i("LISTSIZE", list.size() + "");
+        Log.i("LISTAT0", list.get(0) + "");
+        for (int i = 0; i < list.size(); i++) {
+            animals[i] = list.get(i);
+        }
+
+        ArrayAdapter<Animal> adapter = new myAdapter(this, animals);
+        setListAdapter(adapter);
+
+
+
+        Log.i("LISTSIZE", list.size() + "");
 
     }
 
@@ -44,17 +56,15 @@ public class MatchesActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
 
         Animal animal = (Animal) l.getItemAtPosition(position);
-        String gender = animal.getSpecies();
+        String species = animal.getSpecies();
 
-        //Intent intent = new Intent(getApplicationContext(), StateActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DogProfileActivity.class);
         // If serializable dont do this
-//        intent.putExtra(NAME_KEY, state.getName());
-//        intent.putExtra(ABBV_KEY, state.getAbbrv());
-
-        //intent.putExtra(STATE_KEY, state);
+        intent.putExtra(NAME_KEY, animal.getName());
+        intent.putExtra(GENDER_KEY, animal.getGender());
 
 
-        //startActivity(intent);
+        startActivity(intent);
 
     }
 
@@ -73,7 +83,7 @@ public class MatchesActivity extends ListActivity {
             LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View rowView = layoutInflater.inflate(R.layout.row, parent, false);
-
+            Log.i("LOGGINGGGG", animals[position].getName());
             TextView nameTV = rowView.findViewById(R.id.animal_name_textview);
             nameTV.setText(animals[position].getName());
             TextView speciesTV = rowView.findViewById(R.id.gender_textView);
