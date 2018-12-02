@@ -231,8 +231,11 @@ public class SwipeActivity extends Activity {
                                 }
 
                                 if(!contains)
+                                {
                                     db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto(), AnimalsArrayList.get(j).getShelterName(), AnimalsArrayList.get(j).getShelterAddress(), AnimalsArrayList.get(j).getShelterPhone(), AnimalsArrayList.get(j).getAdoptionFee()));
-                                Log.i("ADDED: " , "Added the animal " + AnimalsArrayList.get(j).getName());
+                                    Log.i("ADDED: ", "Added the animal " + AnimalsArrayList.get(j).getName());
+                                }
+
                                 parentView.removeView(containerView);
                             }
                             break;
