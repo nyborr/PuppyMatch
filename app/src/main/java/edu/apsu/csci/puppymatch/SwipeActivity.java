@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SwipeActivity extends Activity {
     int windowWidth;
@@ -219,7 +220,18 @@ public class SwipeActivity extends Activity {
                                 Toast.makeText(context, "Added to your matches", Toast.LENGTH_SHORT).show();
                                 Log.e("Event_Status :-> ", "Added to your matches");
 
-                                db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto(), AnimalsArrayList.get(j).getShelterName(), AnimalsArrayList.get(j).getShelterAddress(), AnimalsArrayList.get(j).getShelterPhone(), AnimalsArrayList.get(j).getAdoptionFee()));
+                                List<Animal> animals = db.getAllAnimals();
+
+                                boolean contains = false;
+
+                                for(int k = 0; k < ((List) animals).size(); k++)
+                                {
+                                    if(animals.get(k).getId() == AnimalsArrayList.get(j).getId())
+                                        contains = true;
+                                }
+
+                                if(!contains)
+                                    db.addAnimal(new Animal(AnimalsArrayList.get(j).getId(), AnimalsArrayList.get(j).getName(), AnimalsArrayList.get(j).getGender(), AnimalsArrayList.get(j).getSpecies(), AnimalsArrayList.get(j).getAge(), AnimalsArrayList.get(j).isChildren(), AnimalsArrayList.get(j).getSize(), AnimalsArrayList.get(j).getPhoto(), AnimalsArrayList.get(j).getShelterName(), AnimalsArrayList.get(j).getShelterAddress(), AnimalsArrayList.get(j).getShelterPhone(), AnimalsArrayList.get(j).getAdoptionFee()));
                                 Log.i("ADDED: " , "Added the animal " + AnimalsArrayList.get(j).getName());
                                 parentView.removeView(containerView);
                             }
