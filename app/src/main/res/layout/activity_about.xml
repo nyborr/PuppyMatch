@@ -7,6 +7,6 @@
         android:id="@+id/about_title_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The App"
+        android:text="Puppy Match is an app by Robyn Yates and Lexie Nance to help bring more exposure to pets in need of adoption by using matchmaking processes popular in modern apps."
         android:textSize="30sp" />
 </LinearLayout>
