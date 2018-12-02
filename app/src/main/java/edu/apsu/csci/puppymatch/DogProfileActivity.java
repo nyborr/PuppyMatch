@@ -13,5 +13,13 @@ public class DogProfileActivity extends Activity {
         String name = intent.getStringExtra("name_key");
         String species = intent.getStringExtra("species_key");
         String age = intent.getStringExtra("age_key");
+        String photo = intent.getStringExtra("photo_key");
+        String size = intent.getStringExtra("size_key");
+        String address = intent.getStringExtra("shelteraddress");
+        String shelter = intent.getStringExtra("sheltername");
+        String phone = intent.getStringExtra("shelterphone");
+        String fee = intent.getStringExtra("adoptionfee");
+
+        
     }
 }

@@ -70,6 +70,7 @@ public class MatchesActivity extends ListActivity {
         intent.putExtra("photo_key", animal.getPhoto());
         intent.putExtra("shelteraddress", animal.getShelterAddress());
         intent.putExtra("sheltername", animal.getShelterName());
+        intent.putExtra("shelterphone", animal.getShelterPhone());
         intent.putExtra("adoptionfee", animal.getAdoptionFee());
 
         startActivity(intent);
