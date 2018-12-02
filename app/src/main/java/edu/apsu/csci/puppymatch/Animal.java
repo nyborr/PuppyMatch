@@ -16,12 +16,15 @@ public class Animal {
     private int photo;
     private String totalLikes;
     private String gender;
+    private String shelterName;
+    private String shelterAddress;
+    private String shelterPhone;
 
     public Animal() {
 
     }
 
-    public Animal(int id, String name, String gender, String species, int age, boolean children, Size size, int photo) {
+    public Animal(int id, String name, String gender, String species, int age, boolean children, Size size, int photo, String shelterName, String shelterAddress, String shelterPhone) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -31,6 +34,9 @@ public class Animal {
         this.children = children;
         this.size = size;
         this.photo = photo;
+        this.shelterName = shelterName;
+        this.shelterAddress = shelterAddress;
+        this.shelterPhone = shelterPhone;
     }
 
     public int getId() {
@@ -107,5 +113,11 @@ public class Animal {
     public void setPhoto(int photo) {
         this.photo = photo;
     }
+
+    public String getShelterName() { return shelterName; }
+
+    public String getShelterAddress() { return shelterAddress; }
+
+    public String getShelterPhone() { return shelterPhone; }
 
 }
