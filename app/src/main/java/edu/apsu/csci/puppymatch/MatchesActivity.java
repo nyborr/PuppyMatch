@@ -33,6 +33,7 @@ public class MatchesActivity extends ListActivity {
         Animal[] animals = new Animal[list.size()];
 
         for (Animal animal : list) {
+//            db.deleteAnimal(list.get(0));
             Log.i("LISTINGITEMS: ", animal.getName());
         }
 
@@ -62,8 +63,14 @@ public class MatchesActivity extends ListActivity {
         // If serializable dont do this
         intent.putExtra(NAME_KEY, animal.getName());
         intent.putExtra(GENDER_KEY, animal.getGender());
-        //intent.putExtra("")
-
+        intent.putExtra("species_key", animal.getSpecies());
+        intent.putExtra("age_key", animal.getAge());
+        intent.putExtra("children_key", animal.isChildren());
+        intent.putExtra("size_key", animal.getSize());
+        intent.putExtra("photo_key", animal.getPhoto());
+        intent.putExtra("shelteraddress", animal.getShelterAddress());
+        intent.putExtra("sheltername", animal.getShelterName());
+        intent.putExtra("adoptionfee", animal.getAdoptionFee());
 
         startActivity(intent);
 
